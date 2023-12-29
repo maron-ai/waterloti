@@ -1,4 +1,8 @@
 import Image from 'next/image';
+import Link from 'next/link';
+
+import { siteConfig } from "@/config/site"
+import { buttonVariants } from "@/components/ui/button"
 
 export default function Home() {
   return (
@@ -17,14 +21,26 @@ export default function Home() {
             Waterloti Open Source<br className="hidden sm:inline" />
             Contributor Hub
           </h1>
-          <p className="max-w-[700px] text-lg text-muted-foreground">
-            Discover open source projects that match your skills and interests with Waterloti. We analyze your resume to suggest projects tailored for you, making it easier to start contributing to meaningful and relevant open source projects.
-          </p>
-          <span className="mr-2 mt-4 inline-flex items-center rounded-md bg-blue-400/10 px-1 py-1 text-xs font-medium text-blue-400 ring-1 ring-inset ring-blue-400/30">
-            Coming Soon
-          </span>
 
+          <p className="max-w-[700px] text-lg text-muted-foreground">
+
+            Discover open source projects that match your skills and interests with Waterloti. We analyze your resume to suggest projects tailored to you, making it easier to start contributing to meaningful and relevant open source projects.
+            <span className="ml-2 inline-flex items-center rounded-md bg-blue-400/10 px-1 py-1 text-xs font-medium text-blue-400 ring-1 ring-inset ring-blue-400/30">
+              Coming Soon
+            </span>
+          </p>
+          <div className="flex flex-col items-center justify-center pt-6 md:pt-10">
+            <Link
+              href={siteConfig.links.github}
+              target="_blank"
+              rel="noreferrer"
+              className={buttonVariants({ variant: "outline" })}
+            >
+              Github
+            </Link>
+          </div>
         </section>
+
       </div>
     </main>
   );

@@ -12,6 +12,6 @@ export const siteConfig = {
   ],
   links: {
     github: "https://github.com/maron-ai/waterloti",
-    discord: "https://github.com/maron-ai/waterloti",
+    website: "https://waterloti.com",
   },
 };
