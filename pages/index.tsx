@@ -27,7 +27,7 @@ export default function Home() {
           <section className="flex flex-col items-center justify-center text-center pt-6 md:py-10">
             <h1 className="text-3xl max-w-[980px] pb-3  font-extrabold leading-tight tracking-tighter md:text-4xl">
               Waterloti Open Source<br className="hidden sm:inline" />
-              Contributor Hub
+              {' '}Contributor Hub
             </h1>
 
             <p className="max-w-[700px] text-lg text-muted-foreground">
