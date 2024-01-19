@@ -7,9 +7,9 @@ import { Analytics } from "@vercel/analytics/react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Waterloti – Chat with Github APIs using natural language",
+  title: "Waterloti - Explore OpenSource Like Never Before",
   description:
-    "Chat with Github APIs using natural language. Built with OpenAI Functions and Vercel AI SDK.",
+    "Just upload your resume and let's find you some cool open source projects that fit your style.",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
