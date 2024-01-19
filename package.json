@@ -1,36 +1,30 @@
 {
-  "name": "waterloti",
-  "version": "0.1.0",
-  "private": true,
+  "name": "Routine",
+  "version": "1.0.0",
+  "description": "An opinionated collection of apps and packages for your Next.js monorepo project.",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "prettier": "npx prettier --write \"**/*.{ts,tsx}\"",
+    "prepare": "husky install"
   },
-  "dependencies": {
-    "@radix-ui/react-slot": "^1.0.2",
-    "@shadcn/ui": "^0.0.4",
-    "class-variance-authority": "^0.7.0",
-    "clsx": "^2.0.0",
-    "lucide-react": "^0.303.0",
-    "next": "14.0.4",
-    "next-themes": "^0.2.1",
-    "react": "^18",
-    "react-dom": "^18",
-    "tailwind-merge": "^2.2.0",
-    "tailwindcss-animate": "^1.0.7"
-  },
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
-    "@ianvs/prettier-plugin-sort-imports": "^3.7.2",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "autoprefixer": "^10.0.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.0.4",
-    "postcss": "^8",
-    "tailwindcss": "^3.3.0",
-    "typescript": "^5"
-  }
+    "@turbo/gen": "^1.11.3",
+    "eslint": "^8.56.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.2.1",
+    "prettier-plugin-organize-imports": "^3.2.4",
+    "prettier-plugin-tailwindcss": "^0.5.11",
+    "turbo": "^1.11.3",
+    "typescript-config": "workspace:*"
+  },
+  "engines": {
+    "pnpm": ">=8"
+  },
+  "packageManager": "pnpm@8.6.10"
 }
