@@ -1,49 +1,11 @@
 {
-  // JS
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  // JSON
-  "[json]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
-  },
-  // Extension: Git
-  "git.rebaseWhenSync": true,
-  "git.autofetch": true,
-  "git.enableSmartCommit": true,
-  // Extension: Prettier
-  "prettier.requireConfig": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true,
-  // Extension: ESLint
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-    "source.organizeImports": false
-  },
-  "eslint.validate": [
-    "javascript",
-    "typescript",
-    "javascriptreact",
-    "typescriptreact"
-  ],
-  "eslint.format.enable": true,
-  "search-node-modules.path": "node_modules",
-  "markdown.extension.toc.updateOnSave": false,
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
-  },
-  "workbench.tree.indent": 15,
-  "workbench.tree.renderIndentGuides": "always",
-  "workbench.colorCustomizations": {
-    "tree.indentGuidesStroke": "#00B2FF"
-  },
-  "WillLuke.nextjs.hasPrompted": true,
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true,
-  // Extension: cSpell
-  "cSpell.words": [
-    "Apify",
-    "waterloti"
-  ]
+    "cSpell.words": [
+        "Dorcy",
+        "dorcyshema",
+        "Maron",
+        "Shema",
+        "tabler",
+        "tesseract",
+        "waterloti"
+    ]
 }
