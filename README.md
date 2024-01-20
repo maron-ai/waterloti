@@ -1,5 +1,5 @@
 <a href="">
-  <img alt="Chat with Github APIs using natural language. Built with OpenAI Functions and Vercel AI SDK." src="./apps/web/app/opengraph-image.png">
+  <img alt="Waterloti - Explore OpenSource Like Never Before" src="./apps/web/app/opengraph-image.png">
   <h1 align="center">Waterloti</h1>
 </a>
 

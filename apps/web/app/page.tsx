@@ -17,7 +17,7 @@ import { useAttachmentsStore } from './store-attachments';
 const examples = [
   "Please provide me with the top 5 trending repositories on Github in markdown table format. The table should include columns such as repository name, primary language, stars, and description.",
   "Please provide me with the top 10 trending repositories on Github in the past week, where the primary language is Typescript. The information should be presented in a markdown table format, including columns such as repository name, primary language, stars, and description.",
-  "Please give me a list of projects with typescript that I can start contributing code to today.",
+  "Please provide me with some ChatGPT alternatives for me to start contributing code to.",
 ];
 
 export type AttachmentSourceOriginDTO = 'drop' | 'paste';
