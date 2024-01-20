@@ -1,7 +1,9 @@
 import { ChatCompletionCreateParams } from "openai/resources/chat/index";
+import { collections } from "./constants";
 
 type PeriodType = 'past_24_hours' | 'past_week' | 'past_month' | 'past_3_months'
 type LanguageType = 'All' | 'JavaScript' | 'Java' | 'Python' | 'PHP' | 'C++' | 'C#' | 'TypeScript' | 'Shell' | 'C' | 'Ruby' | 'Rust' | 'Go' | 'Kotlin' | 'HCL' | 'PowerShell' | 'CMake' | 'Groovy' | 'PLpgSQL' | 'TSQL' | 'Dart' | 'Swift' | 'HTML' | 'CSS' | 'Elixir' | 'Haskell' | 'Solidity' | 'Assembly' | 'R' | 'Scala' | 'Julia' | 'Lua' | 'Clojure' | 'Erlang' | 'Common Lisp' | 'Emacs Lisp' | 'OCaml' | 'MATLAB' | 'Objective-C' | 'Perl' | 'Fortran';
+
 
 export const functions: ChatCompletionCreateParams.Function[] = [
   {
@@ -48,6 +50,22 @@ export const functions: ChatCompletionCreateParams.Function[] = [
       required: ["owner", 'repo'],
     },
   },
+  {
+    name: "get_repos_by_issues",
+    description:
+      "List the top repos in the specified collection by issues if a user is looking for stuff to contribute to use this. Make sure the collections is in the enum list.",
+    parameters: {
+      type: "object",
+      properties: {
+        collection: {
+          type: "string",
+          enum: collections.map((c) => `${c.id}:${c.name}`),
+          description: "The relevant collection.",
+        },
+      },
+      required: ["collection"],
+    },
+  },
 ];
 
 
@@ -76,6 +94,34 @@ async function get_repo_stargazers_stats(owner: string, repo: string) {
   };
 }
 
+async function get_repos_by_issues(collection: string) {
+  try {
+    collection = collection.split(':')[0];
+  } catch (e) {
+    return {
+      error: 'Invalid collection'
+    };
+  }
+
+  console.log(`https://api.ossinsight.io/v1/collections/${collection}/ranking_by_issues/?period=past_28_days`);
+  const response = await fetch(
+    `https://api.ossinsight.io/v1/collections/${collection}/ranking_by_issues/?period=past_28_days`,
+  );
+  
+  const data = await response.json().then((d) => {
+    if (d && d.rows) {
+      d.rows = d.rows.map((row: { id: number, repo_name: string }) => {
+        return { ...row, repo_name: `https://github.com/${row.repo_name}` };
+      });
+    }
+    return d;
+  });
+
+  return {
+    ...data,
+  };
+}
+
 export async function runFunction(name: string, args: any) {
   console.log(name, args, '.....')
   switch (name) {
@@ -83,6 +129,9 @@ export async function runFunction(name: string, args: any) {
       return await get_trending_repos();
     case "get_repo_stargazers_stats":
       return await get_repo_stargazers_stats(args['owner'], args['repo']);
+    case "get_repos_by_issues":
+      console.log('args', args['collection'])
+      return await get_repos_by_issues(args['collection']);
     default:
       return null;
   }
