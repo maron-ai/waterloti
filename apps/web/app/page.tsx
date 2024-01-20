@@ -13,6 +13,7 @@ import Textarea from "react-textarea-autosize";
 import { toast } from "sonner";
 import { fileOpen, FileWithHandle } from 'browser-fs-access';
 import { useAttachmentsStore } from './store-attachments';
+import Link from 'next/link';
 
 const examples = [
   "Please provide me with the top 5 trending repositories on Github in markdown table format. The table should include columns such as repository name, primary language, stars, and description.",
@@ -172,8 +173,19 @@ export default function Chat() {
               Welcome to Waterloti!
             </h1>
             <p className="text-gray-500">
-                Odd name, right? Just upload your resume and let&apos;s find you some cool open source projects that fit your style. No resume? No sweat. Check out hot GitHub projects directly. Make coding fun again!
+                Odd name, right? Just upload your resume and let&apos;s find you some cool open source projects that fit your style. No resume? No sweat. Check out hot GitHub projects directly.
             </p>
+            <Link
+                href="https://opensource.guide/how-to-contribute/"
+                target="_blank"
+                rel="noopener noreferrer"
+                // underline and 
+                className="transition-colors text-black hover:text-gray-700 underline"
+              >
+                {" "}
+                How to contribute to open source
+              </Link>
+
           </div>
           <div className="flex flex-col space-y-4 border-t border-gray-200 bg-gray-50 p-7 sm:p-10">
             {examples.map((example, i) => (
