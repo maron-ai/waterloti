@@ -7,9 +7,19 @@ import { Analytics } from "@vercel/analytics/react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Waterloti - Explore OpenSource Like Never Before",
+  title: "Waterloti - Explore Open Source Like Never Before",
+  metadataBase: new URL('https://waterloti.com'),
+  alternates: {
+    canonical: '/',
+    languages: {
+      'en-US': '/en-US',
+    },
+  },
+  openGraph: {
+    images: '/opengraph-image.png',
+  },
   description:
-    "Just upload your resume and let's find you some cool open source projects that fit your style.",
+    "Just upload your resume and let's find you some cool open source projects that fit your style. No resume? No sweat. Check out hot GitHub projects directly.",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

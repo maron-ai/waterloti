@@ -265,7 +265,7 @@ export default function Chat() {
           </button>
         </form>
         <p className="text-center text-xs text-gray-400">
-          Built with {"<3"} by{" "}
+          Assembled by{" "}
           <a
             href="https://maron.ai"
             target="_blank"
@@ -273,17 +273,7 @@ export default function Chat() {
             className="transition-colors hover:text-black"
           >
             Maron AI
-          </a>{" "}
-          and{" "}
-          <a
-            href="https://sdk.vercel.ai/docs"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="transition-colors hover:text-black"
-          >
-            Vercel AI SDK
-          </a>
-          .{" "}
+          </a>{" • "}
           <a
             href="https://github.com/maron-ai/waterloti"
             target="_blank"
