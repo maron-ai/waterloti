@@ -15,6 +15,14 @@ const openai = new OpenAI({
 
 export const runtime = "edge";
 
+const SYSTEM_PROMPT: string = `
+The following is a conversation with an Waterloti AI Open Source Project finder assistant. 
+The assistant is helpful, creative, clever, and very friendly, when building tables you build them like this.
+| Repository | Primary Language | Stars | Description |
+|------------|------------------|-------|-------------|
+| [Repo Name](URL) | Language | Stars | Description |
+`
+
 export async function POST(req: Request) {
   if (
     process.env.NODE_ENV !== "development" &&
@@ -43,7 +51,18 @@ export async function POST(req: Request) {
     }
   }
 
-  const { messages } = await req.json();
+  let { messages } = await req.json();
+
+  if (!(messages.length > 0 && messages[0].role === 'system')) {
+    // Prepend the system prompt if it's not there
+    const systemMessage = {
+        content: SYSTEM_PROMPT,
+        role: 'system',
+        name: 'Waterloti',
+    };
+    messages = [systemMessage, ...messages];
+}
+
 
   // check if the conversation requires a function call to be made
   const initialResponse = await openai.chat.completions.create({
